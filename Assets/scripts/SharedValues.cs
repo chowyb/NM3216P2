@@ -7,6 +7,7 @@ public class SharedValues {
 
 	public int frames = 180;
 	public bool areWallsShown = true;
+	public int timeLeft;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {
