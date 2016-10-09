@@ -16,5 +16,10 @@ public class TimerUpdate : MonoBehaviour {
 			sharedValues.frames = 180;
 		}
 		sharedValues.timeLeft--;
+
+		sharedValues.confusedTime--;
+		if (sharedValues.confusedTime <= 0) {
+			sharedValues.confusedFactor = 1;
+		}
 	}
 }

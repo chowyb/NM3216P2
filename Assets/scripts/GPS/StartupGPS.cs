@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Startup : MonoBehaviour {
+public class StartupGPS : MonoBehaviour {
 
 	public GameObject wall;
 
-	private const float WALL_DISTANCE = 0.25F;
-	private const float HALF_WALL_DISTANCE = 0.5F * WALL_DISTANCE;
+	protected const float WALL_DISTANCE = 0.25F;
+	protected const float HALF_WALL_DISTANCE = 0.5F * WALL_DISTANCE;
 
 	private int[,] horizontalWalls = new int[,]
 	{

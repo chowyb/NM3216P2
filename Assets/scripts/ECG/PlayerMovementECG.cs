@@ -1,17 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
-
-	public float moveForce;
-	public float maxSpeed;
+public class PlayerMovementECG : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 	private bool moving = false;
 	private int frames = 0;
 	private int direction = 0;
-	private const int MOVEMENT_FRAMES = 10;
-	private const float MOVEMENT_PER_FRAME = 0.0125F;
+	private const int MOVEMENT_FRAMES = 5;
+	private const float MOVEMENT_PER_FRAME = 0.025F;
+
+	private SharedValues sharedValues = SharedValues.GetInstance();
 
 	// Use this for initialization
 	void Start() {
@@ -56,16 +55,16 @@ public class PlayerMovement : MonoBehaviour {
 			if (frames > 0) {
 				switch (direction) {
 					case 0:
-						transform.Translate(Vector2.up * MOVEMENT_PER_FRAME);
+						transform.Translate(Vector2.up * MOVEMENT_PER_FRAME * sharedValues.confusedFactor);
 						break;
 					case 1:
-						transform.Translate(Vector2.right * MOVEMENT_PER_FRAME);
+						transform.Translate(Vector2.right * MOVEMENT_PER_FRAME * sharedValues.confusedFactor);
 						break;
 					case 2:
-						transform.Translate(Vector2.down * MOVEMENT_PER_FRAME);
+						transform.Translate(Vector2.down * MOVEMENT_PER_FRAME * sharedValues.confusedFactor);
 						break;
 					case 3:
-						transform.Translate(Vector2.left * MOVEMENT_PER_FRAME);
+						transform.Translate(Vector2.left * MOVEMENT_PER_FRAME * sharedValues.confusedFactor);
 						break;
 				}
 				frames--;
