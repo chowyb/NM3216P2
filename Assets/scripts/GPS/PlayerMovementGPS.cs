@@ -9,6 +9,7 @@ public class PlayerMovementGPS : MonoBehaviour {
 	private int direction = 0;
 	private const int MOVEMENT_FRAMES = 10;
 	private const float MOVEMENT_PER_FRAME = 0.0125F;
+	private SharedValues sharedValues = SharedValues.GetInstance();
 
 	// Use this for initialization
 	void Start() {
@@ -25,7 +26,7 @@ public class PlayerMovementGPS : MonoBehaviour {
 
 		float h = Input.GetAxis("Horizontal");
 
-		if (h != 0 && !moving) {
+		if (h != 0 && !moving && !sharedValues.isStunned) {
 			if (Mathf.Sign(h) > 0) {
 				direction = 1;
 			}
@@ -38,7 +39,7 @@ public class PlayerMovementGPS : MonoBehaviour {
 
 		float v = Input.GetAxis("Vertical");
 
-		if (v != 0 && !moving) {
+		if (v != 0 && !moving && !sharedValues.isStunned) {
 			if (Mathf.Sign(v) > 0) {
 				direction = 0;
 			}

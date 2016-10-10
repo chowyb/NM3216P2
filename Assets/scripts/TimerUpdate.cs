@@ -21,5 +21,10 @@ public class TimerUpdate : MonoBehaviour {
 		if (sharedValues.confusedTime <= 0) {
 			sharedValues.confusedFactor = 1;
 		}
+
+		sharedValues.stunnedTime--;
+		if (sharedValues.stunnedTime <= 0) {
+			sharedValues.isStunned = false;
+		}
 	}
 }

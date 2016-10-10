@@ -4,9 +4,11 @@ using System.Collections;
 public class StartupGPS : MonoBehaviour {
 
 	public GameObject wall;
+	public GameObject trap;
 
 	protected const float WALL_DISTANCE = 0.25F;
 	protected const float HALF_WALL_DISTANCE = 0.5F * WALL_DISTANCE;
+	protected const float QUARTER_WALL_DISTANCE = 0.5F * HALF_WALL_DISTANCE;
 
 	private int[,] horizontalWalls = new int[,]
 	{
@@ -57,8 +59,37 @@ public class StartupGPS : MonoBehaviour {
 		{1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
 	};
 
+	private int[,] traps = new int[,]
+	{
+		{3, 5},
+		{7, 6},
+		{13, 7},
+		{4, 11},
+		{8, 7},
+		{14, 1},
+		{13, 14},
+		{23, 13},
+		{17, 5},
+		{20, 21},
+		{35, 24},
+		{27, 31},
+		{19, 23},
+		{13, 17},
+		{37, 4},
+		{5, 23},
+		{16, 39},
+		{14, 29},
+		{32, 24},
+		{26, 29},
+		{4, 33},
+		{9, 24},
+		{6, 33},
+		{24, 30},
+	};
+
 	// Use this for initialization
 	void Start() {
+		// walls
 		for (int i = 0; i < horizontalWalls.GetLength(0); i++) {
 			for (int j = 0; j < horizontalWalls.GetLength(1); j++) {
 				if (horizontalWalls[i, j] == 1) {
@@ -72,6 +103,14 @@ public class StartupGPS : MonoBehaviour {
 					Instantiate(wall, new Vector2(j * WALL_DISTANCE, -((i * WALL_DISTANCE) + HALF_WALL_DISTANCE)), Quaternion.Euler(0, 0, 90));
 				}
 			}
+		}
+
+		// traps
+		for (int i = 0; i < traps.GetLength(0); i++) {
+			int trapRow = traps[i, 0];
+			int trapCol = traps[i, 1];
+			Instantiate(trap, new Vector2(trapRow * HALF_WALL_DISTANCE + QUARTER_WALL_DISTANCE,
+				                          -(trapCol * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
 		}
 	}
 	

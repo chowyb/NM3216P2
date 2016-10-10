@@ -10,6 +10,8 @@ public class SharedValues {
 	public int timeLeft;
 	public float confusedFactor = 1;
 	public int confusedTime;
+	public bool isStunned = false;
+	public int stunnedTime;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {
