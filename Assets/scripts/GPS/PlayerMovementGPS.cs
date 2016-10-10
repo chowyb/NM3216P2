@@ -74,4 +74,28 @@ public class PlayerMovementGPS : MonoBehaviour {
 			}
 		}
 	}
+
+	// used to stop upon colliding with a wall
+	void OnCollisionEnter2D(Collision2D col) {
+		if (col.gameObject.tag.Equals("Wall")) {
+			// attempt to move the player away from the collision
+			switch (direction) {
+				case 0:
+					transform.Translate(Vector2.down * MOVEMENT_PER_FRAME);
+					break;
+				case 1:
+					transform.Translate(Vector2.left * MOVEMENT_PER_FRAME);
+					break;
+				case 2:
+					transform.Translate(Vector2.up * MOVEMENT_PER_FRAME);
+					break;
+				case 3:
+					transform.Translate(Vector2.right * MOVEMENT_PER_FRAME);
+					break;
+			}
+
+			moving = false;
+			frames = 0;
+		}
+	}
 }

@@ -16,21 +16,21 @@ public class CameraMovement : MonoBehaviour {
 		offset = transform.position - player.transform.position;
 		playerCamera = GetComponent<Camera>();
 	}
-
-	void FixedUpdate() {
-		if (Input.GetButtonDown("Jump")) {
+	
+	// Update is called once per frame
+	void Update() {
+		if (Input.GetKeyDown("space")) {
+			Debug.Log("pressed");
 			isOverview = !isOverview;
 			float tempSize = nextSize;
 			nextSize = playerCamera.orthographicSize;
 			playerCamera.orthographicSize = tempSize;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update() {
+
 		if (!isOverview) {
 			transform.position = player.transform.position + offset;
 		}
+
 		else {
 			transform.position = mazeCentre;
 		}

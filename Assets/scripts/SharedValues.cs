@@ -5,9 +5,11 @@ public class SharedValues {
 
 	private static SharedValues sharedValues = null;
 
-	public int frames = 180;
+	public int wallFrames = 0;
 	public bool areWallsShown = true;
 	public int timeLeft;
+	public int trapDisplayState = 1;
+	public int trapDisplayStateTime = 120;
 	public float confusedFactor = 1;
 	public int confusedTime;
 	public bool isStunned = false;

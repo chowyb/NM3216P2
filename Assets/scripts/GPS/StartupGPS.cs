@@ -85,6 +85,27 @@ public class StartupGPS : MonoBehaviour {
 		{9, 24},
 		{6, 33},
 		{24, 30},
+		{27, 35},
+		{31, 37},
+		{25, 18},
+		{33, 31},
+		{35, 29},
+		{17, 34},
+		{31, 38},
+		{32, 26},
+		{16, 34},
+		{29, 16},
+		{36, 19},
+		{24, 38},
+		{26, 5},
+		{23, 33},
+		{27, 37},
+		{34, 39},
+		{36, 36},
+		{27, 36},
+		{25, 34},
+		{25, 38},
+		{23, 30},
 	};
 
 	// Use this for initialization
@@ -109,8 +130,9 @@ public class StartupGPS : MonoBehaviour {
 		for (int i = 0; i < traps.GetLength(0); i++) {
 			int trapRow = traps[i, 0];
 			int trapCol = traps[i, 1];
-			Instantiate(trap, new Vector2(trapRow * HALF_WALL_DISTANCE + QUARTER_WALL_DISTANCE,
-				                          -(trapCol * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
+			GameObject newWall = (GameObject)Instantiate(trap, new Vector2(trapRow * HALF_WALL_DISTANCE + QUARTER_WALL_DISTANCE,
+				                                                           -(trapCol * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
+			newWall.GetComponent<TrapGPS>().trapStateOn = ((trapRow + trapCol) % 2) + 1;
 		}
 	}
 	

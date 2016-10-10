@@ -10,12 +10,21 @@ public class TimerUpdate : MonoBehaviour {
 	}
 
 	void Update() {
-		sharedValues.frames--;
-		if (sharedValues.frames < 0) {
-			sharedValues.areWallsShown = !sharedValues.areWallsShown;
-			sharedValues.frames = 180;
+		sharedValues.wallFrames--;
+		if (!sharedValues.areWallsShown && sharedValues.wallFrames < 0) {
+			sharedValues.areWallsShown = true;
 		}
+
 		sharedValues.timeLeft--;
+
+		sharedValues.trapDisplayStateTime--;
+		if (sharedValues.trapDisplayStateTime < 0) {
+			sharedValues.trapDisplayState++;
+			if (sharedValues.trapDisplayState == 3) {
+				sharedValues.trapDisplayState = 1;
+			}
+			sharedValues.trapDisplayStateTime = 180;
+		}
 
 		sharedValues.confusedTime--;
 		if (sharedValues.confusedTime <= 0) {
