@@ -7,8 +7,8 @@ public class CameraMovement : MonoBehaviour {
 
 	private bool isOverview = false;
 	private Vector3 offset;
-	private Vector3 mazeCentre = new Vector3(2.25F, -2.25F, -10);
-	private float nextSize = 3.05F;
+	private Vector3 mazeCentre = new Vector3(4.5F, -3.75F, -10);
+	private float nextSize = 4.0F;
 	private Camera playerCamera;
 
 	// Use this for initialization
@@ -20,7 +20,6 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if (Input.GetKeyDown("space")) {
-			Debug.Log("pressed");
 			isOverview = !isOverview;
 			float tempSize = nextSize;
 			nextSize = playerCamera.orthographicSize;

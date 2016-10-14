@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class StartupGPSRandom : MonoBehaviour {
+public class StartupGPSRandom2 : MonoBehaviour {
 
 	public GameObject wall;
 	public GameObject trap;
@@ -22,8 +23,7 @@ public class StartupGPSRandom : MonoBehaviour {
 
 	private int[,] traps = new int[trapCount, 2];
 
-	private int[] dr = {-1, 0, 1, 0};
-	private int[] dc = {0, 1, 0, -1};
+	private List<Border> borderList = new List<Border>();
 
 	// Use this for initialization
 	void Start() {
@@ -53,7 +53,15 @@ public class StartupGPSRandom : MonoBehaviour {
 			traps[i, 1] = Random.Range(0, numCols * 2);
 		}
 
-		DFS(0, 0);
+		ProcessCell(numRows / 2, numCols / 2);
+		while (borderList.Count > 0) {
+			int index = Random.Range(0, borderList.Count);
+			Border borderToProcess = borderList[index];
+			Border nextBorder = borderList[borderList.Count - 1];
+			borderList[index] = nextBorder;
+			borderList.RemoveAt(borderList.Count - 1);
+			ProcessWall(borderToProcess.orientation, borderToProcess.arrRow, borderToProcess.arrCol);
+		}
 
 		// walls
 		for (int i = 0; i < horizontalWalls.GetLength(0); i++) {
@@ -81,66 +89,67 @@ public class StartupGPSRandom : MonoBehaviour {
 		}
 	}
 
-	void DFS(int mazeRow, int mazeCol) {
-
-		visited[mazeRow, mazeCol] = 1;
-
-		while (true) {
-			bool[] moves = getValidMoves(mazeRow, mazeCol);
-			int numValidMoves = 0;
-			int indexValidMove = -1;
-
-			int arrLength = moves.GetLength(0);
-
-			for (int i = 0; i < arrLength; i++) {
-				if (moves[i]) {
-					numValidMoves++;
-					indexValidMove = i;
-				}
+	void ProcessWall(int orientation, int row, int col) {
+		if (orientation == 0) {
+			if (CheckState(row - 1, col) + CheckState(row, col) == 1) {
+				horizontalWalls[row, col] = 0;
+				ProcessCell(row - 1, col);
+				ProcessCell(row, col);
 			}
-
-			if (numValidMoves == 0) {
-				break;
+		}
+		else {
+			if (CheckState(row, col - 1) + CheckState(row, col) == 1) {
+				verticalWalls[row, col] = 0;
+				ProcessCell(row, col - 1);
+				ProcessCell(row, col);
 			}
-			else if (numValidMoves > 1) {
-				int triedMove = Random.Range(0, arrLength);
-				while (!moves[triedMove]) {
-					triedMove = Random.Range(0, arrLength);
-				}
-				indexValidMove = triedMove;
-			}
-
-			switch (indexValidMove) {
-				case 0:
-					horizontalWalls[mazeRow, mazeCol] = 0;
-					break;
-				case 1:
-					verticalWalls[mazeRow, mazeCol + 1] = 0;
-					break;
-				case 2:
-					horizontalWalls[mazeRow + 1, mazeCol] = 0;
-					break;
-				case 3:
-					verticalWalls[mazeRow, mazeCol] = 0;
-					break;
-			}
-
-			DFS(mazeRow + dr[indexValidMove], mazeCol + dc[indexValidMove]);
 		}
 	}
 
-	bool[] getValidMoves(int mazeRow, int mazeCol) {
-		bool[] moves = new bool[4];
-		for (int i = 0; i < 4; i++) {
-			moves[i] = checkValidMove(mazeRow + dr[i], mazeCol + dc[i]);
+	int CheckState(int row, int col) {
+		if (row < 0 || row >= numRows || col < 0 || col >= numCols) {
+			return -1000;
 		}
-		return moves;
+		return visited[row, col];
 	}
 
-	bool checkValidMove(int mazeRow, int mazeCol) {
-		if (mazeRow < 0 || mazeCol < 0 || mazeRow >= numRows || mazeCol >= numCols) {
-			return false;
+	void ProcessCell(int row, int col) {
+		if (visited[row, col] == 1) {
+			return;
 		}
-		return (visited[mazeRow, mazeCol] == 0);
+		visited[row, col] = 1;
+		AddBorderHorizontal(row, col);
+		AddBorderVertical(row, col);
+		AddBorderHorizontal(row + 1, col);
+		AddBorderVertical(row, col + 1);
+	}
+
+	void AddBorderHorizontal(int row, int col) {
+		if (horizontalWalls[row, col] == 1) {
+			borderList.Add(new Border(0, row, col));
+		}
+	}
+
+	void AddBorderVertical(int row, int col) {
+		if (verticalWalls[row, col] == 1) {
+			borderList.Add(new Border(1, row, col));
+		}
+
+	}
+}
+
+class Border {
+	public int orientation;
+	public int arrRow;
+	public int arrCol;
+
+	public Border (int orientationIn, int arrRowIn, int arrColIn) {
+		orientation = orientationIn;
+		arrRow = arrRowIn;
+		arrCol = arrColIn;
+	}
+
+	public override string ToString() {
+		return "(" + orientation + " " + arrRow + " " + arrCol + ")";
 	}
 }

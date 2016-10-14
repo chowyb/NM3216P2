@@ -20,7 +20,7 @@ public class TimerUpdate : MonoBehaviour {
 		sharedValues.trapDisplayStateTime--;
 		if (sharedValues.trapDisplayStateTime < 0) {
 			sharedValues.trapDisplayState++;
-			if (sharedValues.trapDisplayState == 3) {
+			if (sharedValues.trapDisplayState == 4) {
 				sharedValues.trapDisplayState = 1;
 			}
 			sharedValues.trapDisplayStateTime = 180;
