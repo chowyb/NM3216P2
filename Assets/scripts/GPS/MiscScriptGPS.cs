@@ -10,6 +10,7 @@ public class MiscScriptGPS : MonoBehaviour {
 	private bool win = false;
 	private bool cheat = false;
 	private bool farexpanses = false;
+	private SharedValues sharedValues = SharedValues.GetInstance();
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +32,7 @@ public class MiscScriptGPS : MonoBehaviour {
 				miscTextUI.text = "You win!";
 			}
 			win = true;
+			sharedValues.isGameOver = true;
 		}
 		/*
 		if (!farexpanses && (player.transform.position.x < -0.75F || player.transform.position.x > 5.5F

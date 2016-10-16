@@ -14,6 +14,7 @@ public class SharedValues {
 	public int confusedTime;
 	public bool isStunned = false;
 	public int stunnedTime;
+	public bool isGameOver = false;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {

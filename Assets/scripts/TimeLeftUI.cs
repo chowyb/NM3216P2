@@ -20,6 +20,7 @@ public class TimeLeftUI : MonoBehaviour {
 		}
 		else {
 			timeLeftUI.text = "Time up!";
+			sharedValues.isGameOver = true;
 		}
 	}
 }

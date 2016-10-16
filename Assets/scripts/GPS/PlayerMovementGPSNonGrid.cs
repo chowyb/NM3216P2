@@ -5,6 +5,7 @@ public class PlayerMovementGPSNonGrid : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
 	private const float MOVEMENT_PER_FRAME = 0.0125F;
+	private SharedValues sharedValues = SharedValues.GetInstance();
 
 	// Use this for initialization
 	void Start() {
@@ -18,14 +19,15 @@ public class PlayerMovementGPSNonGrid : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		if (!sharedValues.isGameOver) {
+			float h = Input.GetAxis("Horizontal");
 
-		float h = Input.GetAxis("Horizontal");
+			float v = Input.GetAxis("Vertical");
 
-		float v = Input.GetAxis("Vertical");
+			Vector2 movement = (Vector2.up * v * MOVEMENT_PER_FRAME) + (Vector2.right * h * MOVEMENT_PER_FRAME);
 
-		Vector2 movement = (Vector2.up * v * MOVEMENT_PER_FRAME) + (Vector2.right * h * MOVEMENT_PER_FRAME);
-
-		transform.Translate(movement);
+			transform.Translate(movement);
+		}
 	}
 
 }

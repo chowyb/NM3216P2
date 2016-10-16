@@ -10,30 +10,32 @@ public class TimerUpdate : MonoBehaviour {
 	}
 
 	void Update() {
-		sharedValues.wallFrames--;
-		if (!sharedValues.areWallsShown && sharedValues.wallFrames < 0) {
-			sharedValues.areWallsShown = true;
-		}
-
-		sharedValues.timeLeft--;
-
-		sharedValues.trapDisplayStateTime--;
-		if (sharedValues.trapDisplayStateTime < 0) {
-			sharedValues.trapDisplayState++;
-			if (sharedValues.trapDisplayState == 4) {
-				sharedValues.trapDisplayState = 1;
+		if (!sharedValues.isGameOver) {
+			sharedValues.wallFrames--;
+			if (!sharedValues.areWallsShown && sharedValues.wallFrames < 0) {
+				sharedValues.areWallsShown = true;
 			}
-			sharedValues.trapDisplayStateTime = 180;
-		}
 
-		sharedValues.confusedTime--;
-		if (sharedValues.confusedTime <= 0) {
-			sharedValues.confusedFactor = 1;
-		}
+			sharedValues.timeLeft--;
 
-		sharedValues.stunnedTime--;
-		if (sharedValues.stunnedTime <= 0) {
-			sharedValues.isStunned = false;
+			sharedValues.trapDisplayStateTime--;
+			if (sharedValues.trapDisplayStateTime < 0) {
+				sharedValues.trapDisplayState++;
+				if (sharedValues.trapDisplayState == 4) {
+					sharedValues.trapDisplayState = 1;
+				}
+				sharedValues.trapDisplayStateTime = 180;
+			}
+
+			sharedValues.confusedTime--;
+			if (sharedValues.confusedTime <= 0) {
+				sharedValues.confusedFactor = 1;
+			}
+
+			sharedValues.stunnedTime--;
+			if (sharedValues.stunnedTime <= 0) {
+				sharedValues.isStunned = false;
+			}
 		}
 	}
 }
