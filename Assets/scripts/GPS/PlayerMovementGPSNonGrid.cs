@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovementGPSNonGrid : MonoBehaviour {
 
 	private Rigidbody2D rb2d;
-	private const float MOVEMENT_PER_FRAME = 0.0125F;
+	private const float MOVEMENT_PER_FRAME = 0.01875F;
 	private SharedValues sharedValues = SharedValues.GetInstance();
 
 	// Use this for initialization
@@ -19,7 +19,7 @@ public class PlayerMovementGPSNonGrid : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (!sharedValues.isGameOver) {
+		if (sharedValues.hasGameStarted && !sharedValues.isGameOver) {
 			float h = Input.GetAxis("Horizontal");
 
 			float v = Input.GetAxis("Vertical");

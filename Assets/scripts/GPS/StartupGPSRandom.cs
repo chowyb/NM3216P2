@@ -12,7 +12,7 @@ public class StartupGPSRandom : MonoBehaviour {
 
 	private const int numRows = 30;
 	private const int numCols = 40;
-	private const int trapCount = 200;
+	private const int trapCount = 300;
 
 	private int[,] horizontalWalls = new int[numRows + 1, numCols];
 

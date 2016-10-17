@@ -22,5 +22,8 @@ public class TimeLeftUI : MonoBehaviour {
 			timeLeftUI.text = "Time up!";
 			sharedValues.isGameOver = true;
 		}
+		if (sharedValues.timeLeft < 1800) {
+			timeLeftUI.color = Color.red;
+		}
 	}
 }

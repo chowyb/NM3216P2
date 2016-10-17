@@ -14,7 +14,10 @@ public class SharedValues {
 	public int confusedTime;
 	public bool isStunned = false;
 	public int stunnedTime;
+	public bool hasGameStarted = false;
 	public bool isGameOver = false;
+	public bool win = false;
+	public bool cheat = false;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {

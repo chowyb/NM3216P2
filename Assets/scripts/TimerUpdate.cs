@@ -10,7 +10,7 @@ public class TimerUpdate : MonoBehaviour {
 	}
 
 	void Update() {
-		if (!sharedValues.isGameOver) {
+		if (sharedValues.hasGameStarted && !sharedValues.isGameOver) {
 			sharedValues.wallFrames--;
 			if (!sharedValues.areWallsShown && sharedValues.wallFrames < 0) {
 				sharedValues.areWallsShown = true;
