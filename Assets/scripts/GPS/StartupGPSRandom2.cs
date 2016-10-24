@@ -45,8 +45,8 @@ public class StartupGPSRandom2 : MonoBehaviour {
 			}
 		}
 
-		horizontalWalls[numRows, numCols - 1] = 0;
-		verticalWalls[0, 0] = 0;
+		//horizontalWalls[numRows, numCols - 1] = 0;
+		//verticalWalls[0, 0] = 0;
 
 		for (int i = 0; i < traps.GetLength(0); i++) {
 			traps[i, 0] = Random.Range(0, numRows * 2);
