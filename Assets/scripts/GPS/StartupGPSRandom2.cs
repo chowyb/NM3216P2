@@ -7,13 +7,13 @@ public class StartupGPSRandom2 : MonoBehaviour {
 	public GameObject wall;
 	public GameObject trap;
 
-	protected const float WALL_DISTANCE = 0.25F;
-	protected const float HALF_WALL_DISTANCE = 0.5F * WALL_DISTANCE;
-	protected const float QUARTER_WALL_DISTANCE = 0.5F * HALF_WALL_DISTANCE;
+	protected const float WALL_DISTANCE = FixedParameters.WALL_DISTANCE;
+	protected const float HALF_WALL_DISTANCE = FixedParameters.HALF_WALL_DISTANCE;
+	protected const float QUARTER_WALL_DISTANCE = FixedParameters.QUARTER_WALL_DISTANCE;
 
-	private const int numRows = 30;
-	private const int numCols = 40;
-	private const int trapCount = 300;
+	private const int numRows = FixedParameters.numRows;
+	private const int numCols = FixedParameters.numCols;
+	private const int trapCount = FixedParameters.trapCount;
 
 	private int[,] horizontalWalls = new int[numRows + 1, numCols];
 
@@ -51,6 +51,10 @@ public class StartupGPSRandom2 : MonoBehaviour {
 		for (int i = 0; i < traps.GetLength(0); i++) {
 			traps[i, 0] = Random.Range(0, numRows * 2);
 			traps[i, 1] = Random.Range(0, numCols * 2);
+			while (traps[i, 0] == 0 && traps[i, 1] == 0) {
+				traps[i, 0] = Random.Range(0, numRows * 2);
+				traps[i, 1] = Random.Range(0, numCols * 2);
+			}
 		}
 
 		ProcessCell(numRows / 2, numCols / 2);

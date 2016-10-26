@@ -5,6 +5,7 @@ public class SharedValues {
 
 	private static SharedValues sharedValues = null;
 
+	public int holesSpawned = 0;
 	public int wallFrames = 0;
 	public bool areWallsShown = true;
 	public int timeLeft;

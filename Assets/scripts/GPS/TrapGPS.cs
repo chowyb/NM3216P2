@@ -14,7 +14,8 @@ public class TrapGPS : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if(other.gameObject.CompareTag("Player") && sharedValues.trapDisplayState == trapStateOn) {
+		if ((other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Block") && !other.isTrigger)
+			&& sharedValues.trapDisplayState == trapStateOn) {
 			sharedValues.areWallsShown = false;
 			sharedValues.wallFrames = 240;
 			gameObject.SetActive(false);

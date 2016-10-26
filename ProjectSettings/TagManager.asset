@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Trap
+  - Block
   layers:
   - Default
   - TransparentFX
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Wall
     uniqueID: 686524251
+    locked: 0
+  - name: BackgroundObject
+    uniqueID: 776857499
     locked: 0
   - name: Object
     uniqueID: 1711640485
