@@ -9,20 +9,30 @@ public class BlockHoleScript : MonoBehaviour {
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
 
-	protected const float WALL_DISTANCE = FixedParameters.WALL_DISTANCE;
-	protected const float HALF_WALL_DISTANCE = FixedParameters.HALF_WALL_DISTANCE;
-	protected const float QUARTER_WALL_DISTANCE = FixedParameters.QUARTER_WALL_DISTANCE;
+	private float HALF_WALL_DISTANCE;
+	private float QUARTER_WALL_DISTANCE;
 
-	private const int numRows = FixedParameters.numRows;
-	private const int numCols = FixedParameters.numCols;
+	private int numRows;
+	private int numCols;
 
-	public const int numHoles = FixedParameters.numHoles;
+	public int numHoles;
 
-	private int [,] holes = new int[numHoles, 2];
-	private int [,] blocks = new int[numHoles, 2];
+	private int [,] holes;
+	private int [,] blocks;
 
 	// Use this for initialization
 	void Start () {
+		FixedParameters fp = FixedParameters.GetInstance();
+		HALF_WALL_DISTANCE = fp.HALF_WALL_DISTANCE;
+		QUARTER_WALL_DISTANCE = fp.QUARTER_WALL_DISTANCE;
+
+		numRows = fp.numRows;
+		numCols = fp.numCols;
+		numHoles = fp.numHoles;
+
+		holes = new int[numHoles, 2];
+		blocks = new int[numHoles, 2];
+
 		for (int i = 0; i < numHoles; i++) {
 			holes[i, 0] = Random.Range(0, numRows * 2);
 			holes[i, 1] = Random.Range(0, numCols * 2);

@@ -135,7 +135,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 257579215
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83682dd3ea920974598881be6eae507a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 91153f15c1b5a3542869954f0f3bd442, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 5759748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.11, y: -3.06, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 240, y: 120, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -731,6 +731,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 831829006}
+--- !u!1 &898786623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 898786625}
+  - 114: {fileID: 898786624}
+  m_Layer: 0
+  m_Name: ParameterObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &898786624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898786623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79cb49e049d27741b8795a10cdc6529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numRows: 30
+  numCols: 40
+  trapCount: 300
+  numHoles: 3
+  gameTime: 180
+  timeout: 4
+--- !u!4 &898786625
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 898786623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 5, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &1148080490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1242,7 @@ MonoBehaviour:
   block: {fileID: 1000010729150606, guid: f43d8e707bccc06419fd459ef3ee4739, type: 2}
   hole: {fileID: 1000013548693146, guid: 9859a5e7d321ba74a8c0fd8652930c72, type: 2}
   selfobject: {fileID: 1659761561}
+  numHoles: 0
 --- !u!4 &1659761563
 Transform:
   m_ObjectHideFlags: 0

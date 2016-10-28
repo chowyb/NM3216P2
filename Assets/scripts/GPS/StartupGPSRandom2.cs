@@ -7,26 +7,47 @@ public class StartupGPSRandom2 : MonoBehaviour {
 	public GameObject wall;
 	public GameObject trap;
 
-	protected const float WALL_DISTANCE = FixedParameters.WALL_DISTANCE;
-	protected const float HALF_WALL_DISTANCE = FixedParameters.HALF_WALL_DISTANCE;
-	protected const float QUARTER_WALL_DISTANCE = FixedParameters.QUARTER_WALL_DISTANCE;
+	private float WALL_DISTANCE;
+	private float HALF_WALL_DISTANCE;
+	private float QUARTER_WALL_DISTANCE;
 
-	private const int numRows = FixedParameters.numRows;
-	private const int numCols = FixedParameters.numCols;
-	private const int trapCount = FixedParameters.trapCount;
+	private int numRows;
+	private int numCols;
+	private int trapCount;
 
-	private int[,] horizontalWalls = new int[numRows + 1, numCols];
+	private int[,] horizontalWalls;
 
-	private int[,] verticalWalls = new int[numRows, numCols + 1];
+	private int[,] verticalWalls;
 
-	private int[,] visited = new int[numRows, numCols];
+	private int[,] visited;
 
-	private int[,] traps = new int[trapCount, 2];
+	private int[,] traps;
 
-	private List<Border> borderList = new List<Border>();
+	private List<Border> borderList;
 
 	// Use this for initialization
 	void Start() {
+		FixedParameters fp = FixedParameters.GetInstance();
+		WALL_DISTANCE = fp.WALL_DISTANCE;
+		HALF_WALL_DISTANCE = fp.HALF_WALL_DISTANCE;
+		QUARTER_WALL_DISTANCE = fp.QUARTER_WALL_DISTANCE;
+
+		numRows = fp.numRows;
+		numCols = fp.numCols;
+		trapCount = fp.trapCount;
+
+		horizontalWalls = new int[numRows + 1, numCols];
+
+		verticalWalls = new int[numRows, numCols + 1];
+
+		visited = new int[numRows, numCols];
+
+		traps = new int[trapCount, 2];
+
+		borderList = new List<Border>();
+
+
+
 		for (int i = 0; i < horizontalWalls.GetLength(0); i++) {
 			for (int j = 0; j < horizontalWalls.GetLength(1); j++) {
 				horizontalWalls[i, j] = 1;

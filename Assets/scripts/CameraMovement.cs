@@ -7,12 +7,17 @@ public class CameraMovement : MonoBehaviour {
 
 	private bool isOverview = false;
 	private Vector3 offset;
-	private Vector3 mazeCentre = new Vector3(4.5F, -3.75F, -10);
-	private float nextSize = 4.0F;
+	private Vector3 mazeCentre;
+	private float nextSize;
 	private Camera playerCamera;
 
 	// Use this for initialization
 	void Start() {
+		FixedParameters fp = FixedParameters.GetInstance();
+		float x = fp.numCols * fp.WALL_DISTANCE / 2.0F;
+		float y = -fp.numRows * fp.WALL_DISTANCE / 2.0F;
+		mazeCentre = new Vector3(x, y, -10);
+		nextSize = Mathf.Max(x * 0.5625F, -y * 1.125F);
 		offset = transform.position - player.transform.position;
 		playerCamera = GetComponent<Camera>();
 	}

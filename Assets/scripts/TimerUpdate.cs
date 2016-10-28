@@ -5,10 +5,6 @@ public class TimerUpdate : MonoBehaviour {
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
 
-	void Start() {
-		sharedValues.timeLeft = 180 * 60;
-	}
-
 	void Update() {
 		if (sharedValues.hasGameStarted && !sharedValues.isGameOver) {
 			sharedValues.wallFrames--;

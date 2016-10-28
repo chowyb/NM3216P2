@@ -6,6 +6,12 @@ public class TrapGPS : MonoBehaviour {
 	public int trapStateOn;
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
+	private int timeout;
+
+	void Start() {
+		FixedParameters fp = FixedParameters.GetInstance();
+		timeout = fp.timeout;
+	}
 
 	void Update() {
 		if (GetComponent<Renderer>() != null) {
@@ -17,7 +23,7 @@ public class TrapGPS : MonoBehaviour {
 		if ((other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Block") && !other.isTrigger)
 			&& sharedValues.trapDisplayState == trapStateOn) {
 			sharedValues.areWallsShown = false;
-			sharedValues.wallFrames = 240;
+			sharedValues.wallFrames = timeout;
 			gameObject.SetActive(false);
 		}
 	}

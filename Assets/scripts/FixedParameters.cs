@@ -4,13 +4,37 @@ using System.Collections;
 public class FixedParameters {
 
 	// maze dimensions
-	public const float WALL_DISTANCE = 0.25F;
-	public const float HALF_WALL_DISTANCE = 0.5F * WALL_DISTANCE;
-	public const float QUARTER_WALL_DISTANCE = 0.5F * HALF_WALL_DISTANCE;
+	public float WALL_DISTANCE;
+	public float HALF_WALL_DISTANCE;
+	public float QUARTER_WALL_DISTANCE;
 
-	public const int numRows = 30;
-	public const int numCols = 40;
-	public const int trapCount = 300;
+	public int numRows;
+	public int numCols;
+	public int trapCount;
 
-	public const int numHoles = 3;
+	public int numHoles;
+
+	public int timeout;
+
+	private static FixedParameters inst;
+
+	public static FixedParameters GetInstance() {
+		return inst;
+	}
+
+	public static void generateParameters(float wall_dist, int rows, int cols, int traps, int holes, int timeout) {
+		inst = new FixedParameters();
+
+		inst.WALL_DISTANCE = wall_dist;
+		inst.HALF_WALL_DISTANCE = 0.5F * wall_dist;
+		inst.QUARTER_WALL_DISTANCE = 0.25F * wall_dist;
+
+		inst.numRows = rows;
+		inst.numCols = cols;
+		inst.trapCount = traps;
+
+		inst.numHoles = holes;
+
+		inst.timeout = timeout;
+	}
 }
