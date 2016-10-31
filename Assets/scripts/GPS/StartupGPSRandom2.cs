@@ -6,6 +6,7 @@ public class StartupGPSRandom2 : MonoBehaviour {
 
 	public GameObject wall;
 	public GameObject trap;
+	public GameObject guard;
 
 	private float WALL_DISTANCE;
 	private float HALF_WALL_DISTANCE;
@@ -14,6 +15,7 @@ public class StartupGPSRandom2 : MonoBehaviour {
 	private int numRows;
 	private int numCols;
 	private int trapCount;
+	private int numGuards;
 
 	private int[,] horizontalWalls;
 
@@ -22,6 +24,8 @@ public class StartupGPSRandom2 : MonoBehaviour {
 	private int[,] visited;
 
 	private int[,] traps;
+
+	private int[,] guards;
 
 	private List<Border> borderList;
 
@@ -35,6 +39,8 @@ public class StartupGPSRandom2 : MonoBehaviour {
 		numRows = fp.numRows;
 		numCols = fp.numCols;
 		trapCount = fp.trapCount;
+		numGuards = fp.numGuards;
+
 
 		horizontalWalls = new int[numRows + 1, numCols];
 
@@ -43,6 +49,8 @@ public class StartupGPSRandom2 : MonoBehaviour {
 		visited = new int[numRows, numCols];
 
 		traps = new int[trapCount, 2];
+
+		guards = new int[numGuards, 2];
 
 		borderList = new List<Border>();
 
@@ -78,6 +86,13 @@ public class StartupGPSRandom2 : MonoBehaviour {
 			}
 		}
 
+		for (int i = 0; i < guards.GetLength(0); i++) {
+			guards[i, 0] = Random.Range(0, numRows * 2);
+			guards[i, 1] = Random.Range(0, numCols * 2);
+		}
+
+
+
 		ProcessCell(numRows / 2, numCols / 2);
 		while (borderList.Count > 0) {
 			int index = Random.Range(0, borderList.Count);
@@ -112,6 +127,15 @@ public class StartupGPSRandom2 : MonoBehaviour {
 				                                                           -(trapRow * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
 			newWall.GetComponent<TrapGPS>().trapStateOn = ((trapRow + trapCol) % 3) + 1;
 		}
+
+		// guards
+		for (int i = 0; i < guards.GetLength(0); i++) {
+			int guardRow = traps[i, 0];
+			int guardCol = traps[i, 1];
+			Instantiate(guard, new Vector2(guardCol * HALF_WALL_DISTANCE + QUARTER_WALL_DISTANCE,
+				                           -(guardRow * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
+		}
+
 	}
 
 	void ProcessWall(int orientation, int row, int col) {

@@ -16,7 +16,7 @@ public class TimeLeftUI : MonoBehaviour {
 	void Update () {
 		if (sharedValues.timeLeft > 0) {
 			string timeLeftString = (sharedValues.timeLeft / 60.0F).ToString("0.00");
-			timeLeftUI.text = "Time Left: " + timeLeftString;
+			timeLeftUI.text = "Time Left: " + timeLeftString + "s";
 		}
 		else {
 			timeLeftUI.text = "Time up!";

@@ -16,13 +16,19 @@ public class FixedParameters {
 
 	public int timeout;
 
+	public int numGuards;
+
+	public int timeDeduction;
+	public int timeInvincible;
+
 	private static FixedParameters inst;
 
 	public static FixedParameters GetInstance() {
 		return inst;
 	}
 
-	public static void generateParameters(float wall_dist, int rows, int cols, int traps, int holes, int timeout) {
+	public static void generateParameters(float wall_dist, int rows, int cols, int traps, int holes,
+		                                  int timeout, int numGuards, int timeDeduction, int timeInvincible) {
 		inst = new FixedParameters();
 
 		inst.WALL_DISTANCE = wall_dist;
@@ -36,5 +42,10 @@ public class FixedParameters {
 		inst.numHoles = holes;
 
 		inst.timeout = timeout;
+
+		inst.numGuards = numGuards;
+
+		inst.timeDeduction = timeDeduction;
+		inst.timeInvincible = timeInvincible;
 	}
 }
