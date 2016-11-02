@@ -42,6 +42,9 @@ public class DialogueGPS : MonoBehaviour {
 				}
 			}
 		}
+		if (Input.GetKeyDown("j")) {
+			StartDialogue(0);
+		}
 	}
 
 	public void StartDialogue(int index) {

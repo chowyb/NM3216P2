@@ -36,6 +36,7 @@ public class DisableRotation : MonoBehaviour {
 		}
 		else {
 			GetComponent<SpriteRenderer>().sprite = blockFixed;
+			transform.localScale = new Vector3(0.5F, 0.5F, 1);
 		}
 	}
 
