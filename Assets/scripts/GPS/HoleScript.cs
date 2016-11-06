@@ -21,6 +21,7 @@ public class HoleScript : MonoBehaviour {
 					other.gameObject.transform.position = transform.position;
 					drscript.SetPhysicsState(false);
 					hasBlock = true;
+					GetComponent<SpriteRenderer>().enabled = false;
 					bhscript.SpawnNewBlockHolePair();
 				}
 			}

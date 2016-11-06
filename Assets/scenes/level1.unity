@@ -253,7 +253,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &263582935
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &349192050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,6 +539,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358170255}
+--- !u!1 &384892471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 384892473}
+  - 114: {fileID: 384892472}
+  m_Layer: 0
+  m_Name: ResetObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &384892472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384892471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e04f1783cfab1428749a12fe659de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &384892473
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384892471}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20, y: 5, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
 --- !u!1 &461359681
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,15 +800,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79cb49e049d27741b8795a10cdc6529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numRows: 30
-  numCols: 40
-  trapCount: 300
-  numGuards: 20
+  numRows: 20
+  numCols: 20
+  trapCount: 100
+  numGuards: 5
   timeDeduction: 2
   timeInvincible: 2
   numHoles: 3
   gameTime: 180
   timeout: 4
+  level: 0
 --- !u!4 &898786625
 Transform:
   m_ObjectHideFlags: 0
@@ -781,7 +822,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1148080490
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +1001,7 @@ RectTransform:
   - {fileID: 1409082308}
   - {fileID: 1331857929}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1248,6 +1289,15 @@ MonoBehaviour:
   block: {fileID: 1000010729150606, guid: f43d8e707bccc06419fd459ef3ee4739, type: 2}
   hole: {fileID: 1000013548693146, guid: 9859a5e7d321ba74a8c0fd8652930c72, type: 2}
   selfobject: {fileID: 1659761561}
+  virus1: {fileID: 21300000, guid: 775ed1ff24a812249a04aba5433be5cb, type: 3}
+  virus2: {fileID: 21300000, guid: e2e2040f545a46245abfb71db81021af, type: 3}
+  virus3: {fileID: 21300000, guid: 30fe3c83a4ffb4841a4b760a708e9f4e, type: 3}
+  virus4: {fileID: 21300000, guid: 1446bcf454792ad40a3d528d3956fb5a, type: 3}
+  virus5: {fileID: 21300000, guid: d442af34f63761f4c8272c5abae68242, type: 3}
+  virus6: {fileID: 21300000, guid: d258b50d558d92b4dbf2bbefc758c3c0, type: 3}
+  virus7: {fileID: 21300000, guid: 01b7ca814336d9240a128126ebf07025, type: 3}
+  virus8: {fileID: 21300000, guid: 0ad24dd2a8926aa46beabed41bd01798, type: 3}
+  virus9: {fileID: 21300000, guid: cc940ef3e7c47054496c921215664d1a, type: 3}
   numHoles: 0
 --- !u!4 &1659761563
 Transform:
@@ -1364,7 +1414,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1792016792
 GameObject:
   m_ObjectHideFlags: 0

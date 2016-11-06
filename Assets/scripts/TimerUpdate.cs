@@ -23,10 +23,12 @@ public class TimerUpdate : MonoBehaviour {
 				sharedValues.trapDisplayStateTime = 180;
 			}
 
+			/*
 			sharedValues.confusedTime--;
 			if (sharedValues.confusedTime <= 0) {
 				sharedValues.confusedFactor = 1;
 			}
+			*/
 
 			sharedValues.stunnedTime--;
 			if (sharedValues.stunnedTime <= 0) {

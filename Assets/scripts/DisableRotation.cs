@@ -4,7 +4,6 @@ using System.Collections;
 public class DisableRotation : MonoBehaviour {
 
 	public Sprite blockActive;
-	public Sprite blockFixed;
 
 	private Rigidbody2D rb2d;
 	private bool physicsActive = true;
@@ -35,8 +34,7 @@ public class DisableRotation : MonoBehaviour {
 			GetComponent<SpriteRenderer>().sprite = blockActive;
 		}
 		else {
-			GetComponent<SpriteRenderer>().sprite = blockFixed;
-			transform.localScale = new Vector3(0.5F, 0.5F, 1);
+			GetComponent<SpriteRenderer>().enabled = false;
 		}
 	}
 
