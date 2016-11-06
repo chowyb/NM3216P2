@@ -5,6 +5,7 @@ public class SharedValues {
 
 	private static SharedValues sharedValues = null;
 
+	// these values are specific to one level only
 	public int holesSpawned;
 	public int wallFrames;
 	public bool areWallsShown;
@@ -17,6 +18,9 @@ public class SharedValues {
 	public bool isGameOver;
 	public bool win;
 	public int level;
+
+	// these values are shared across scenes
+	public int crossWinState = 0;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {
