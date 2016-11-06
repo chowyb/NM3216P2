@@ -11,7 +11,7 @@ public class CallReset : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown("r")) {
-			SceneManager.LoadScene("reset");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 }
