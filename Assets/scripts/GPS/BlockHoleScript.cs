@@ -10,12 +10,6 @@ public class BlockHoleScript : MonoBehaviour {
 	public Sprite virus1;
 	public Sprite virus2;
 	public Sprite virus3;
-	public Sprite virus4;
-	public Sprite virus5;
-	public Sprite virus6;
-	public Sprite virus7;
-	public Sprite virus8;
-	public Sprite virus9;
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
 
@@ -72,7 +66,7 @@ public class BlockHoleScript : MonoBehaviour {
 			                                      -(holeRow * HALF_WALL_DISTANCE) - QUARTER_WALL_DISTANCE), Quaternion.identity);
 		newhole.GetComponent<HoleScript>().bhscriptContainer = selfobject;
 		newhole.GetComponent<HoleScript>().GetScript();
-		int virusSprite = Random.Range(0, 9);
+		int virusSprite = Random.Range(0, 3);
 		Sprite toUse = virus1;
 		switch (virusSprite) {
 			case 0:
@@ -83,24 +77,6 @@ public class BlockHoleScript : MonoBehaviour {
 				break;
 			case 2:
 				toUse = virus3;
-				break;
-			case 3:
-				toUse = virus4;
-				break;
-			case 4:
-				toUse = virus5;
-				break;
-			case 5:
-				toUse = virus6;
-				break;
-			case 6:
-				toUse = virus7;
-				break;
-			case 7:
-				toUse = virus8;
-				break;
-			case 8:
-				toUse = virus9;
 				break;
 		}
 		newhole.GetComponent<SpriteRenderer>().sprite = toUse;

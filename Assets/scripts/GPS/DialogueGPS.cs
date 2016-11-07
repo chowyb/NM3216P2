@@ -14,11 +14,10 @@ public class DialogueGPS : MonoBehaviour {
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
 	private int currentDialogueState = 0;
-	private int[] nextDialogueState = {1, -1};
+	private int[] nextDialogueState = {-1};
 
 	private string[,] dialogues = {
-		{"dummy", "dummy"},
-		{"doc", "Test to show switching of content and image"}
+		{"capn", "hi"},
 	};
 
 
