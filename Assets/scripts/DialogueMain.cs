@@ -140,6 +140,7 @@ public class DialogueMain : MonoBehaviour {
 				}
 			}
 		}
+		/*
 		if (Input.GetKeyDown("i")) {
 			StartDialogue(1);
 		}
@@ -158,6 +159,7 @@ public class DialogueMain : MonoBehaviour {
 		if (Input.GetKeyDown("m")) {
 			StartDialogue(65);
 		}
+		*/
 	}
 
 	public void StartDialogue(int index) {

@@ -6,6 +6,7 @@ public class DialogueGPS : MonoBehaviour {
 
 	public GameObject dialogueTextBox;
 	public GameObject rightDialogueImage;
+	public GameObject instructions;
 
 	public Sprite capn;
 	public Sprite doc;
@@ -32,6 +33,7 @@ public class DialogueGPS : MonoBehaviour {
 			if (currentDialogueState != -1) {
 				if (nextDialogueState[currentDialogueState] == -1) {
 					SetUIState(false);
+					SetInstructionState(false);
 					sharedValues.hasGameStarted = true;
 					currentDialogueState = -1;
 				}
@@ -40,9 +42,23 @@ public class DialogueGPS : MonoBehaviour {
 					currentDialogueState = nextDialogueState[currentDialogueState];
 				}
 			}
+			else {
+				SetUIState(false);
+				SetInstructionState(false);
+				sharedValues.hasGameStarted = true;
+			}
 		}
-		if (Input.GetKeyDown("j")) {
-			StartDialogue(0);
+		if (Input.GetKeyDown("f1")) {
+			if (!instructions.GetComponent<Image>().enabled) {
+				SetInstructionState(true);
+				sharedValues.hasGameStarted = false;
+			}
+			else {
+				SetInstructionState(false);
+				if (currentDialogueState == -1) {
+					sharedValues.hasGameStarted = true;
+				}
+			}
 		}
 	}
 
@@ -79,6 +95,10 @@ public class DialogueGPS : MonoBehaviour {
 		dialogueTextBox.SetActive(state);
 		rightDialogueImage.SetActive(state);
 		GetComponent<Image>().enabled = state;
+	}
+
+	void SetInstructionState(bool state) {
+		instructions.GetComponent<Image>().enabled = state;
 	}
 
 }

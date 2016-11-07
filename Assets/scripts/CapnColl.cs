@@ -7,11 +7,11 @@ public class CapnColl : MonoBehaviour {
 	public GameObject dialogue;
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (logic.GetComponent<StartupMain>().dialogueState == 0) {
-			dialogue.GetComponent<DialogueMain>().StartDialogue(21);
+		if (logic.GetComponent<StartupMain>().dialogueState == 6) {
+			dialogue.GetComponent<DialogueMain>().StartDialogue(44);
 		}
-		else if (logic.GetComponent<StartupMain>().dialogueState == 2) {
-			dialogue.GetComponent<DialogueMain>().StartDialogue(33);
+		else if (logic.GetComponent<StartupMain>().dialogueState == 8) {
+			dialogue.GetComponent<DialogueMain>().StartDialogue(65);
 		}
 	}
 }
