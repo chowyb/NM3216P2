@@ -1006,13 +1006,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numRows: 20
   numCols: 30
-  trapCount: 200
+  trapCount: 450
   numGuards: 0
-  timeDeduction: 2
+  timeDeduction: 3
   timeInvincible: 2
   numHoles: 3
-  gameTime: 180
+  gameTime: 150
   timeout: 2
+  requireInitialInstructions: 0
   level: 1
 --- !u!4 &898786625
 Transform:
@@ -1268,8 +1269,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3d5d1e447739e23429b1566f0d4f763b, type: 3}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 1b729a7f86f84b744a621312051a4652, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1

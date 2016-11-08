@@ -8,11 +8,11 @@ public class EngieColl : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (logic.GetComponent<StartupMain>().dialogueState == 5) {
-			dialogue.GetComponent<DialogueMain>().StartDialogue(21);
+			dialogue.GetComponent<DialogueMain>().StartDialogue(22);
 			logic.GetComponent<StartupMain>().dialogueState++;
 		}
 		else if (logic.GetComponent<StartupMain>().dialogueState == 8) {
-			dialogue.GetComponent<DialogueMain>().StartDialogue(33);
+			dialogue.GetComponent<DialogueMain>().StartDialogue(35);
 			logic.GetComponent<StartupMain>().dialogueState++;
 		}
 	}

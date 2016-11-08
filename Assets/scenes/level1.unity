@@ -1006,12 +1006,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numRows: 20
   numCols: 20
-  trapCount: 100
+  trapCount: 250
   numGuards: 0
-  timeDeduction: 2
+  timeDeduction: 3
   timeInvincible: 2
   numHoles: 3
-  gameTime: 180
+  gameTime: 150
   timeout: 2
   requireInitialInstructions: 1
   level: 0
@@ -1269,8 +1269,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3d5d1e447739e23429b1566f0d4f763b, type: 3}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 1b729a7f86f84b744a621312051a4652, type: 3}
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1281,16 +1281,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Looks like you''re in - all you need to do now is find the antivirus -
-    it looks like a pill - and use them to neutralise the viruses.
+  m_Text: 'Looks like you''re in - you need to find the antivirus and use them to
+    neutralise the viruses.
 
     You only have a limited amount of time to do this before the system locks you
-    out though.
+    out.
 
-    Keep an eye out for traps too - these scramble the system making it difficult
-    to find your way around.
-
-    Pressing "F1" will bring up the instructions if you need them.'
+    Keep an eye out for traps - these scramble the system making it difficult to navigate.'
 --- !u!222 &1209073865
 CanvasRenderer:
   m_ObjectHideFlags: 0
