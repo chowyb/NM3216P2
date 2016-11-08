@@ -9,9 +9,11 @@ public class HelmsColl : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		if (logic.GetComponent<StartupMain>().dialogueState == 0) {
 			dialogue.GetComponent<DialogueMain>().StartDialogue(1);
+			logic.GetComponent<StartupMain>().dialogueState++;
 		}
-		else if (logic.GetComponent<StartupMain>().dialogueState == 2) {
+		else if (logic.GetComponent<StartupMain>().dialogueState == 3) {
 			dialogue.GetComponent<DialogueMain>().StartDialogue(14);
+			logic.GetComponent<StartupMain>().dialogueState++;
 		}
 	}
 }

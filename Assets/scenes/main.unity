@@ -853,6 +853,7 @@ MonoBehaviour:
   hel: {fileID: 2136776431}
   eng: {fileID: 1753669744}
   cap: {fileID: 1018920117}
+  player: {fileID: 461359681}
   fadeToBlack: {fileID: 1499791168}
   counter: {fileID: 1594319994}
   dialogueState: 8
@@ -1331,7 +1332,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Times run: 0001857'
+  m_Text: 'Times run:'
 --- !u!222 &1594319995
 CanvasRenderer:
   m_ObjectHideFlags: 0

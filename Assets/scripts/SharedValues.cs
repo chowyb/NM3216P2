@@ -21,6 +21,7 @@ public class SharedValues {
 
 	// these values are shared across scenes
 	public int crossWinState = 0;
+	public int counterNumber = 1843;
 
 	public static SharedValues GetInstance() {
 		if (sharedValues == null) {

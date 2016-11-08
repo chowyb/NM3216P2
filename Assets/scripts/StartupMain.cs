@@ -13,6 +13,8 @@ public class StartupMain : MonoBehaviour {
 	public GameObject eng;
 	public GameObject cap;
 
+	public GameObject player;
+
 	public Image fadeToBlack;
 	public Text counter;
 
@@ -20,15 +22,21 @@ public class StartupMain : MonoBehaviour {
 	public int dialogueState;
 	/* possible dialogue states:
 	0: just started
-	1: just finished 1 prequest
-	2: just finished level 1
-	3: just finished 1 postquest
-	4: just finished 2 prequest
-	5: just finished level 2
-	6: just finished 2 postquest
-	7: just finished 3 prequest
-	8: just finished level 3
-	9: just finished 3 postquest
+	1: just started 1 prequest
+	2: just finished 1 prequest
+	3: just finished level 1
+	4: just started 1 postquest
+	5: just finished 1 postquest
+	6: just started 2 prequest
+	7: just finished 2 prequest
+	8: just finished level 2
+	9: just started 2 postquest
+	10: just finished 2 postquest
+	11: just started 3 prequest
+	12: just finished 3 prequest
+	13: just finished level 3
+	14: just started 3 postquest
+	15: just finished 3 postquest
 	*/
 
 	private SharedValues sharedValues = SharedValues.GetInstance();
@@ -56,28 +64,31 @@ public class StartupMain : MonoBehaviour {
 		else if (!l2c) {
 			captain.GetComponent<SpriteRenderer>().color = faded;
 			cap.GetComponent<SpriteRenderer>().color = invisible;
-			dialogueState = 2;
+			dialogueState = 3;
 		}
 		else if (!l3c) {
-			dialogueState = 5;
-		}
-		else {
+			player.transform.Translate(2, 0, 0);
 			dialogueState = 8;
 		}
+		else {
+			player.transform.Translate(4, 0, 0);
+			dialogueState = 13;
+		}
+		counter.text = "Times run: 000" + sharedValues.counterNumber;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (dialogueState == 1) {
+		if (dialogueState == 2) {
 			SceneManager.LoadScene("level1");
 		}
-		else if (dialogueState == 4) {
+		else if (dialogueState == 7) {
 			SceneManager.LoadScene("level2");
 		}
-		else if (dialogueState == 7) {
+		else if (dialogueState == 12) {
 			SceneManager.LoadScene("level3");
 		}
-		else if (dialogueState == 9) {
+		else if (dialogueState == 15) {
 			Color nextColour = fadeToBlack.color;
 			Color textColour = counter.color;
 			if (nextColour.a != 1) {
@@ -95,21 +106,26 @@ public class StartupMain : MonoBehaviour {
 				counter.color = textColour;
 			}
 			else {
-				if (counterFrames > 300) {
-					counter.text = "Times run: 0001858";
+				if (counterFrames > 600) {
+					sharedValues.counterNumber++;
+					sharedValues.crossWinState = 0;
+					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				}
+				else if (counterFrames > 300) {
+					counter.text = "Times run: 000" + (sharedValues.counterNumber + 1);
 				}
 				else if (counterFrames > 210) {
-					counter.text = "Times run: 000185";
+					counter.text = "Times run: 000" + (sharedValues.counterNumber % 10);
 				}
 				else if (counterFrames < 90) {
-					counter.text = "Times run: 0001857";
+					counter.text = "Times run: 000" + sharedValues.counterNumber;
 				}
 				else {
 					if (counterFrames % 40 < 20) {
-						counter.text = "Times run: 000185_";
+						counter.text = "Times run: 000" + (sharedValues.counterNumber % 10) + "_";
 					}
 					else {
-						counter.text = "Times run: 000185";
+						counter.text = "Times run: 000" + (sharedValues.counterNumber % 10);
 					}
 				}
 				counterFrames++;
