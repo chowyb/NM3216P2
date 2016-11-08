@@ -18,12 +18,15 @@ public class ParameterScript : MonoBehaviour {
 
 	public float timeout;
 
+	public int requireInitialInstructions;
+
 	public int level;
 
 	// Use this for initialization
 	void Awake () {
 		FixedParameters.generateParameters(wallDistance, numRows, numCols, trapCount, numHoles,
-			                               Mathf.CeilToInt(timeout * 60), numGuards, Mathf.CeilToInt(timeDeduction * 60), Mathf.CeilToInt(timeInvincible * 60));
+			                               Mathf.CeilToInt(timeout * 60), numGuards, Mathf.CeilToInt(timeDeduction * 60), Mathf.CeilToInt(timeInvincible * 60),
+			                               requireInitialInstructions);
 	    SharedValues sharedValues = SharedValues.GetInstance();
 	    sharedValues.timeLeft = Mathf.CeilToInt(gameTime * 60);
 	    sharedValues.level = level;

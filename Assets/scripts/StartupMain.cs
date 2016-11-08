@@ -115,17 +115,17 @@ public class StartupMain : MonoBehaviour {
 					counter.text = "Times run: 000" + (sharedValues.counterNumber + 1);
 				}
 				else if (counterFrames > 210) {
-					counter.text = "Times run: 000" + (sharedValues.counterNumber % 10);
+					counter.text = "Times run: 000" + (sharedValues.counterNumber / 10);
 				}
 				else if (counterFrames < 90) {
 					counter.text = "Times run: 000" + sharedValues.counterNumber;
 				}
 				else {
 					if (counterFrames % 40 < 20) {
-						counter.text = "Times run: 000" + (sharedValues.counterNumber % 10) + "_";
+						counter.text = "Times run: 000" + (sharedValues.counterNumber / 10) + "_";
 					}
 					else {
-						counter.text = "Times run: 000" + (sharedValues.counterNumber % 10);
+						counter.text = "Times run: 000" + (sharedValues.counterNumber / 10);
 					}
 				}
 				counterFrames++;

@@ -11,6 +11,8 @@ public class CameraMovement : MonoBehaviour {
 	private float nextSize;
 	private Camera playerCamera;
 
+	private SharedValues sharedValues = SharedValues.GetInstance();
+
 	// Use this for initialization
 	void Start() {
 		FixedParameters fp = FixedParameters.GetInstance();
@@ -24,7 +26,7 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		if (Input.GetKeyDown("space")) {
+		if (Input.GetKeyDown("space") && sharedValues.hasGameStarted && !sharedValues.isGameOver) {
 			isOverview = !isOverview;
 			float tempSize = nextSize;
 			nextSize = playerCamera.orthographicSize;

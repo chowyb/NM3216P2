@@ -38,9 +38,9 @@ public class BlockHoleScript : MonoBehaviour {
 		blocks = new int[numHoles, 2];
 
 		for (int i = 0; i < numHoles; i++) {
-			holes[i, 0] = Random.Range(0, numRows * 2);
+			holes[i, 0] = Random.Range(0, numRows);
 			holes[i, 1] = Random.Range(0, numCols * 2);
-			blocks[i, 0] = Random.Range(0, numRows * 2);
+			blocks[i, 0] = Random.Range(numRows, numRows * 2);
 			blocks[i, 1] = Random.Range(0, numCols * 2);
 		}
 		SpawnNewBlockHolePair();

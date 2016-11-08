@@ -17,6 +17,8 @@ public class DialogueGPS : MonoBehaviour {
 	private int currentDialogueState = 0;
 	private int[] nextDialogueState = {-1};
 
+	private int requireInitialInstructions;
+
 	private string[,] dialogues = {
 		{"capn", "hi"},
 	};
@@ -24,7 +26,8 @@ public class DialogueGPS : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		FixedParameters fp = FixedParameters.GetInstance();
+		requireInitialInstructions = fp.requireInitialInstructions;
 	}
 	
 	// Update is called once per frame
@@ -33,8 +36,13 @@ public class DialogueGPS : MonoBehaviour {
 			if (currentDialogueState != -1) {
 				if (nextDialogueState[currentDialogueState] == -1) {
 					SetUIState(false);
-					SetInstructionState(false);
-					sharedValues.hasGameStarted = true;
+					if (requireInitialInstructions != 0) {
+						SetInstructionState(true);
+					}
+					else {
+						SetInstructionState(false);
+						sharedValues.hasGameStarted = true;
+					}
 					currentDialogueState = -1;
 				}
 				else {

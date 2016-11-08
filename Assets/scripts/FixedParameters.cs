@@ -21,6 +21,8 @@ public class FixedParameters {
 	public int timeDeduction;
 	public int timeInvincible;
 
+	public int requireInitialInstructions;
+
 	private static FixedParameters inst;
 
 	public static FixedParameters GetInstance() {
@@ -28,7 +30,7 @@ public class FixedParameters {
 	}
 
 	public static void generateParameters(float wall_dist, int rows, int cols, int traps, int holes,
-		                                  int timeout, int numGuards, int timeDeduction, int timeInvincible) {
+		                                  int timeout, int numGuards, int timeDeduction, int timeInvincible, int requireInitialInstructions) {
 		inst = new FixedParameters();
 
 		inst.WALL_DISTANCE = wall_dist;
@@ -47,5 +49,7 @@ public class FixedParameters {
 
 		inst.timeDeduction = timeDeduction;
 		inst.timeInvincible = timeInvincible;
+
+		inst.requireInitialInstructions = requireInitialInstructions;
 	}
 }

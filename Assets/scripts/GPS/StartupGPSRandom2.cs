@@ -93,7 +93,7 @@ public class StartupGPSRandom2 : MonoBehaviour {
 
 
 
-		ProcessCell(numRows / 2, numCols / 2);
+		ProcessCell(numRows - 1, numCols - 1);
 		while (borderList.Count > 0) {
 			int index = Random.Range(0, borderList.Count);
 			Border borderToProcess = borderList[index];

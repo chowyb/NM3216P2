@@ -1013,6 +1013,7 @@ MonoBehaviour:
   numHoles: 3
   gameTime: 180
   timeout: 2
+  requireInitialInstructions: 1
   level: 0
 --- !u!4 &898786625
 Transform:

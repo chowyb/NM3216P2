@@ -1005,14 +1005,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numRows: 20
-  numCols: 30
-  trapCount: 200
-  numGuards: 10
-  timeDeduction: 2
+  numCols: 40
+  trapCount: 380
+  numGuards: 25
+  timeDeduction: 3
   timeInvincible: 2
   numHoles: 4
   gameTime: 300
   timeout: 2
+  requireInitialInstructions: 0
   level: 2
 --- !u!4 &898786625
 Transform:
