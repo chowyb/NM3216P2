@@ -1011,7 +1011,7 @@ MonoBehaviour:
   timeDeduction: 3
   timeInvincible: 2
   numHoles: 3
-  gameTime: 150
+  gameTime: 180
   timeout: 2
   requireInitialInstructions: 0
   level: 1
