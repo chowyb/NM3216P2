@@ -99,7 +99,7 @@ public class DialogueMain : MonoBehaviour {
 		{"capn", "You...did it. You really did it."},
 		{"player", "It really wasn’t that difficult."},
 		{"capn", "Well... There’s nothing more left to do here, Jortan.You’ve done your part..."},
-		{"player", "I’m so glad that the Adscensio is safe now!\nThe crew can go home now right?"},
+		{"player", "I’m so glad that the Adscensio is safe now!\nThe crew can go home now, right?"},
 		{"capn", "......"},
 		{"player", "Captain?\nAre you okay?"},
 		{"capn", "......"},
@@ -163,6 +163,7 @@ public class DialogueMain : MonoBehaviour {
 				}
 			}
 		}
+		/*
 		if (Input.GetKeyDown("i")) {
 			StartDialogue(1);
 			logic.GetComponent<StartupMain>().dialogueState--;
@@ -187,6 +188,7 @@ public class DialogueMain : MonoBehaviour {
 			StartDialogue(69);
 			logic.GetComponent<StartupMain>().dialogueState--;
 		}
+		*/
 	}
 
 	public void StartDialogue(int index) {

@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numRows: 20
   numCols: 30
-  trapCount: 450
+  trapCount: 350
   numGuards: 0
   timeDeduction: 3
   timeInvincible: 2
