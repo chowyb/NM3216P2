@@ -16,7 +16,7 @@ public class WallTimeUI : MonoBehaviour {
 	void Update () {
 		if (!sharedValues.areWallsShown) {
 			string timeLeftString = (sharedValues.wallFrames / 60.0F).ToString("0.00");
-			wallTimeUI.text = "Lights out!: " + timeLeftString + "s";
+			wallTimeUI.text = "Scrambled!: " + timeLeftString + "s";
 		}
 		else {
 			wallTimeUI.text = "";

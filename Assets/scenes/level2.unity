@@ -1008,7 +1008,7 @@ MonoBehaviour:
   numCols: 30
   trapCount: 350
   numGuards: 0
-  timeDeduction: 3
+  timeDeduction: 2
   timeInvincible: 2
   numHoles: 3
   gameTime: 180
